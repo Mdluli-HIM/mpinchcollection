@@ -1,0 +1,315 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 80;
+  pointer-events: none;
+}
+
+.shell {
+  position: relative;
+  padding: 1rem var(--page-padding) 0;
+  pointer-events: none;
+}
+
+.bar,
+.mobilePanel {
+  pointer-events: auto;
+}
+
+.bar {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) auto minmax(0, 1fr);
+  align-items: stretch;
+  min-height: var(--header-height);
+  overflow: hidden;
+  transition: background-color 260ms ease, border-color 260ms ease,
+    color 260ms ease;
+}
+
+.barLight {
+  background: rgba(244, 241, 234, 0.96);
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  color: var(--charcoal);
+}
+
+.barDark {
+  background: rgba(13, 13, 13, 0.92);
+  border: 1px solid rgba(249, 247, 242, 0.14);
+  color: var(--bone);
+}
+
+.brandBlock,
+.nav,
+.meta {
+  position: relative;
+  z-index: 1;
+}
+
+.brandBlock {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  border-right: 1px solid currentColor;
+  border-right-color: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.brand {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0 1rem;
+  min-width: 0;
+}
+
+.brandMark {
+  font-size: 1rem;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+  color: #c96a2b;
+}
+.brandSub {
+  font-size: 0.68rem;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, currentColor 58%, transparent);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.navLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 7.5rem;
+  padding: 0 1rem;
+  font-size: 0.76rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, currentColor 76%, transparent);
+  border-right: 1px solid currentColor;
+  border-right-color: color-mix(in srgb, currentColor 10%, transparent);
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.navLink:first-child {
+  border-left: 1px solid currentColor;
+  border-left-color: color-mix(in srgb, currentColor 10%, transparent);
+}
+
+.navLink:hover {
+  background: color-mix(in srgb, currentColor 6%, transparent);
+  color: currentColor;
+}
+
+.navLinkActive {
+  color: currentColor;
+}
+
+.navLinkActive::after {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 0.8rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.72;
+}
+
+.meta {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+  min-width: 0;
+  border-left: 1px solid currentColor;
+  border-left-color: color-mix(in srgb, currentColor 10%, transparent);
+}
+
+.metaText {
+  display: grid;
+  align-content: center;
+  gap: 0.1rem;
+  padding: 0 1rem;
+  min-width: 0;
+  border-right: 1px solid currentColor;
+  border-right-color: color-mix(in srgb, currentColor 10%, transparent);
+}
+
+.metaLabel {
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, currentColor 48%, transparent);
+}
+
+.metaValue {
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, currentColor 78%, transparent);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  min-width: 10rem;
+  font-size: 0.76rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.barLight .cta {
+  background: var(--charcoal);
+  color: var(--bone);
+  border-left: 1px solid rgba(17, 17, 17, 0.08);
+}
+
+.barLight .cta:hover {
+  background: #1a1a1a;
+}
+
+.barDark .cta {
+  background: var(--bone);
+  color: var(--charcoal);
+  border-left: 1px solid rgba(249, 247, 242, 0.12);
+}
+
+.barDark .cta:hover {
+  background: #ffffff;
+}
+
+.menuButton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-width: 5.25rem;
+  padding: 0 1rem;
+  background: transparent;
+  color: inherit;
+  border: 0;
+  border-left: 1px solid currentColor;
+  border-left-color: color-mix(in srgb, currentColor 10%, transparent);
+}
+
+.menuLine {
+  display: block;
+  width: 0.85rem;
+  height: 1px;
+  background: currentColor;
+}
+
+.menuText {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mobilePanel {
+  max-height: 0;
+  overflow: hidden;
+  border-top: 0;
+  transition: max-height 260ms ease, background-color 260ms ease,
+    border-color 260ms ease, color 260ms ease;
+}
+
+.mobilePanelLight {
+  background: rgba(244, 241, 234, 0.98);
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  color: var(--charcoal);
+}
+
+.mobilePanelDark {
+  background: rgba(13, 13, 13, 0.98);
+  border: 1px solid rgba(249, 247, 242, 0.14);
+  color: var(--bone);
+}
+
+.mobilePanelOpen {
+  max-height: 32rem;
+}
+
+.mobileNav {
+  display: grid;
+}
+
+.mobileLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-top: 1px solid currentColor;
+  border-top-color: color-mix(in srgb, currentColor 10%, transparent);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, currentColor 78%, transparent);
+}
+
+.mobileLink:hover {
+  background: color-mix(in srgb, currentColor 6%, transparent);
+}
+
+.mobileLinkActive {
+  color: currentColor;
+}
+
+.mobileIndex {
+  color: color-mix(in srgb, currentColor 42%, transparent);
+}
+
+@media (max-width: 1100px) {
+  .bar {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .menuButton {
+    display: inline-flex;
+  }
+
+  .cta {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .shell {
+    padding-top: 0.75rem;
+  }
+
+  .bar {
+    min-height: 4rem;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .brandSub,
+  .metaText {
+    display: none;
+  }
+
+  .brand {
+    padding-inline: 0.85rem;
+  }
+
+  .menuButton {
+    min-width: 4.5rem;
+    padding-inline: 0.85rem;
+  }
+}

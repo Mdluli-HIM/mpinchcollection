@@ -1,0 +1,159 @@
+.section {
+  position: relative;
+  padding: 8rem var(--page-padding);
+  background: var(--charcoal);
+  color: var(--bone);
+  overflow: clip;
+}
+
+.topRow {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.62fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+}
+
+.statementBlock {
+  max-width: 62rem;
+}
+
+.eyebrow {
+  margin-bottom: 1rem;
+  color: rgba(249, 247, 242, 0.72);
+}
+
+.statement {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.lineMask {
+  overflow: hidden;
+}
+
+.lineMask span {
+  display: block;
+  font-size: clamp(3.8rem, 9vw, 8.5rem);
+  line-height: 0.88;
+  letter-spacing: -0.075em;
+  text-transform: uppercase;
+}
+
+.sideCol {
+  padding-top: 0.45rem;
+}
+
+.sideText {
+  max-width: 21rem;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: rgba(249, 247, 242, 0.7);
+}
+
+.sideMeta {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.panel {
+  position: relative;
+  z-index: 1;
+  margin-top: 4.5rem;
+  padding: 1rem;
+  background: var(--charcoal-2);
+  border: 1px solid var(--line-strong);
+}
+
+.panelHeader {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.25rem 0.25rem 1rem;
+  border-bottom: 1px solid rgba(249, 247, 242, 0.08);
+}
+
+.panelGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.tile {
+  position: relative;
+  min-height: 13rem;
+  padding: 1rem;
+  background: var(--charcoal-3);
+  border: 1px solid rgba(249, 247, 242, 0.1);
+  overflow: hidden;
+}
+
+.tileTop {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.tileBody {
+  position: relative;
+  z-index: 1;
+  margin-top: 2.4rem;
+  max-width: 26rem;
+}
+
+.tileBody strong {
+  display: block;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: var(--bone);
+}
+
+.tileBody p {
+  margin-top: 0.8rem;
+  max-width: 24rem;
+  color: rgba(249, 247, 242, 0.68);
+  line-height: 1.55;
+}
+
+@media (max-width: 960px) {
+  .section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .topRow {
+    grid-template-columns: 1fr;
+  }
+
+  .lineMask span {
+    font-size: clamp(3rem, 15vw, 5rem);
+  }
+
+  .sideText {
+    max-width: 32rem;
+  }
+
+  .panel {
+    margin-top: 3rem;
+  }
+
+  .panelHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .panelGrid {
+    grid-template-columns: 1fr;
+  }
+}

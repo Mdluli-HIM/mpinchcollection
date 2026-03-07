@@ -1,0 +1,9 @@
+node_modules
+.next
+out
+build
+.vercel
+.netlify
+.env
+.env.local
+.DS_Store
