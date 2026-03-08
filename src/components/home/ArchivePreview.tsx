@@ -4,14 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-import { homeCampaignStrip } from "@/content/home";
+import { campaignDetails } from "@/content/campaigns";
 
 import styles from "./ArchivePreview.module.css";
 
 export function ArchivePreview() {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const items = homeCampaignStrip.items;
+  const items = campaignDetails;
   const activeItem = items[activeIndex];
 
   return (
@@ -25,9 +25,9 @@ export function ArchivePreview() {
           </h2>
 
           <p className={styles.copy}>
-            This section is ready to evolve into your Sanity-powered campaign
-            index later. For now, it gives us a strong visual skeleton and a
-            place to plug in collections, editorials, or portfolio cases.
+            This section acts as the homepage preview of the archive system,
+            while still linking into the individual campaign issues that make up
+            the archive.
           </p>
 
           <Link href="/archive" className={styles.link}>
@@ -39,8 +39,8 @@ export function ArchivePreview() {
           <div className={styles.previewFrame}>
             <div className={styles.previewMedia}>
               <Image
-                src={activeItem.image.src}
-                alt={activeItem.image.alt}
+                src={activeItem.heroImage.src}
+                alt={activeItem.heroImage.alt}
                 fill
                 sizes="(max-width: 1100px) 100vw, 44vw"
                 className={styles.previewImage}
@@ -57,6 +57,15 @@ export function ArchivePreview() {
                 <h3>{activeItem.title}</h3>
                 <p>{activeItem.location}</p>
               </div>
+
+              <div className={styles.previewActions}>
+                <Link
+                  href={`/campaigns/${activeItem.slug}`}
+                  className={styles.previewLink}
+                >
+                  Open issue
+                </Link>
+              </div>
             </div>
           </div>
 
@@ -66,11 +75,9 @@ export function ArchivePreview() {
 
               return (
                 <button
-                  key={item.id}
+                  key={item.slug}
                   type="button"
-                  className={`${styles.row} ${
-                    isActive ? styles.rowActive : ""
-                  }`}
+                  className={`${styles.row} ${isActive ? styles.rowActive : ""}`}
                   onClick={() => setActiveIndex(index)}
                 >
                   <div className={styles.rowMeta}>
@@ -79,7 +86,13 @@ export function ArchivePreview() {
                     <span>{item.note}</span>
                   </div>
 
-                  <span className={styles.rowArrow}>View</span>
+                  <Link
+                    href={`/campaigns/${item.slug}`}
+                    className={styles.rowArrow}
+                    onClick={(event) => event.stopPropagation()}
+                  >
+                    View
+                  </Link>
                 </button>
               );
             })}

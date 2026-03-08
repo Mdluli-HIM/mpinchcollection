@@ -1,12 +1,15 @@
+import { ArchiveCta } from "@/components/archive/ArchiveCta";
+import { ArchiveHero } from "@/components/archive/ArchiveHero";
+import { ArchiveIndex } from "@/components/archive/ArchiveIndex";
+import { ArchiveSystem } from "@/components/archive/ArchiveSystem";
+
 export default function ArchivePage() {
   return (
-    <main className="simple-page">
-      <p className="eyebrow">Archive</p>
-      <h1>Archive</h1>
-      <p>
-        Future Sanity-powered archive for collections, editorials, lookbooks,
-        stills, and motion studies.
-      </p>
-    </main>
-  )
+    <>
+      <ArchiveHero />
+      <ArchiveIndex />
+      <ArchiveSystem />
+      <ArchiveCta />
+    </>
+  );
 }

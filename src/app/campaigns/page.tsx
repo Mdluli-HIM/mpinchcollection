@@ -1,12 +1,13 @@
+import { CampaignsCta } from "@/components/campaigns/CampaignsCta";
+import { CampaignsHero } from "@/components/campaigns/CampaignsHero";
+import { CampaignsIndex } from "@/components/campaigns/CampaignsIndex";
+
 export default function CampaignsPage() {
   return (
-    <main className="simple-page">
-      <p className="eyebrow">Campaigns</p>
-      <h1>Campaigns</h1>
-      <p>
-        This will become the high-end campaign index with motion-led entries and
-        case-study style storytelling.
-      </p>
-    </main>
-  )
+    <>
+      <CampaignsHero />
+      <CampaignsIndex />
+      <CampaignsCta />
+    </>
+  );
 }

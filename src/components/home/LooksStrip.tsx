@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import { homeCampaignStrip } from "@/content/home";
+import { campaignDetails } from "@/content/campaigns";
 import { gsap, useGSAP } from "@/lib/gsap";
 
 import styles from "./LooksStrip.module.css";
@@ -18,7 +18,7 @@ export function LooksStrip() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [loadedIds, setLoadedIds] = useState<Record<string, boolean>>({});
 
-  const items = homeCampaignStrip.items;
+  const items = campaignDetails;
   const activeItem = items[activeIndex];
   const maxIndex = Math.max(0, items.length - 1);
 
@@ -218,15 +218,16 @@ export function LooksStrip() {
       <div className={styles.inner}>
         <div className={styles.intro}>
           <p className={`eyebrow ${styles.eyebrow}`} data-campaign-reveal>
-            {homeCampaignStrip.eyebrow}
+            Selected campaigns
           </p>
 
           <h2 className={styles.title} data-campaign-reveal>
-            {homeCampaignStrip.title}
+            Built like printed issues, staged like moving editorials.
           </h2>
 
           <p className={styles.copy} data-campaign-reveal>
-            {homeCampaignStrip.copy}
+            This section is the homepage entry into the campaign world — a
+            premium viewer that leads directly into the individual issue pages.
           </p>
 
           <div className={styles.actions} data-campaign-reveal>
@@ -234,8 +235,11 @@ export function LooksStrip() {
               View all campaigns
             </Link>
 
-            <Link href="/about" className={styles.secondaryAction}>
-              About Mpinch
+            <Link
+              href={`/campaigns/${activeItem.slug}`}
+              className={styles.secondaryAction}
+            >
+              Open current issue
             </Link>
           </div>
         </div>
@@ -290,9 +294,9 @@ export function LooksStrip() {
                   className={styles.stageImageMotion}
                 >
                   <Image
-                    key={activeItem.id}
-                    src={activeItem.image.src}
-                    alt={activeItem.image.alt}
+                    key={activeItem.slug}
+                    src={activeItem.heroImage.src}
+                    alt={activeItem.heroImage.alt}
                     fill
                     sizes="(max-width: 1100px) 100vw, 55vw"
                     className={styles.stageImage}
@@ -328,7 +332,10 @@ export function LooksStrip() {
 
               <div className={styles.stageMetaBottom}>
                 <span className={styles.accent}>{activeItem.accent}</span>
-                <Link href="/campaigns" className={styles.cardLink}>
+                <Link
+                  href={`/campaigns/${activeItem.slug}`}
+                  className={styles.cardLink}
+                >
                   Open issue
                 </Link>
               </div>
@@ -341,7 +348,7 @@ export function LooksStrip() {
 
               return (
                 <button
-                  key={item.id}
+                  key={item.slug}
                   type="button"
                   className={`${styles.thumb} ${
                     isActive ? styles.thumbActive : ""
@@ -351,8 +358,8 @@ export function LooksStrip() {
                 >
                   <div className={styles.thumbMedia}>
                     <Image
-                      src={item.image.src}
-                      alt={item.image.alt}
+                      src={item.heroImage.src}
+                      alt={item.heroImage.alt}
                       fill
                       sizes="(max-width: 1100px) 50vw, 18vw"
                       className={styles.thumbImage}

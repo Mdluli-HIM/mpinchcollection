@@ -1,0 +1,152 @@
+.section {
+  background: var(--charcoal);
+  color: var(--bone);
+  padding: 0 var(--page-padding) 7rem;
+}
+
+.inner {
+  border-top: 1px solid rgba(249, 247, 242, 0.08);
+  padding-top: 1.25rem;
+}
+
+.topRow {
+  display: grid;
+  grid-template-columns: auto minmax(18rem, 34rem);
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: start;
+}
+
+.eyebrow {
+  color: rgba(249, 247, 242, 0.68);
+}
+
+.copy {
+  color: rgba(249, 247, 242, 0.72);
+  line-height: 1.7;
+}
+
+.grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: var(--charcoal-2);
+  border: 1px solid rgba(249, 247, 242, 0.12);
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 1.06;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(249, 247, 242, 0.08);
+  background: #090909;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.meta {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  min-height: 14rem;
+}
+
+.metaTop,
+.metaBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.id {
+  color: rgba(249, 247, 242, 0.42);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.metaMain {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.metaMain h3 {
+  font-size: clamp(1.6rem, 2vw, 2.2rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+.metaMain p {
+  color: rgba(249, 247, 242, 0.62);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.note {
+  color: rgba(249, 247, 242, 0.78);
+  line-height: 1.6;
+}
+
+.accent {
+  color: rgba(249, 247, 242, 0.56);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.6rem;
+  padding: 0 1rem;
+  border: 1px solid rgba(249, 247, 242, 0.14);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.link:hover {
+  transform: translateY(-2px);
+  background: var(--bone);
+  color: var(--charcoal);
+}
+
+@media (max-width: 1100px) {
+  .topRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 960px) {
+  .section {
+    padding-bottom: 5rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metaTop,
+  .metaBottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .meta {
+    min-height: auto;
+  }
+}
