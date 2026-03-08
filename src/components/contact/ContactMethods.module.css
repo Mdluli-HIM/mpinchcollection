@@ -1,0 +1,96 @@
+.section {
+  background: var(--charcoal);
+  color: var(--bone);
+  padding: 6rem var(--page-padding) 7rem;
+}
+
+.inner {
+  border-top: 1px solid rgba(249, 247, 242, 0.08);
+  padding-top: 1.25rem;
+}
+
+.topRow {
+  display: grid;
+  grid-template-columns: auto minmax(18rem, 34rem);
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: start;
+}
+
+.eyebrow {
+  color: rgba(249, 247, 242, 0.68);
+}
+
+.copy {
+  color: rgba(249, 247, 242, 0.72);
+  line-height: 1.7;
+}
+
+.grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: var(--charcoal-2);
+  border: 1px solid rgba(249, 247, 242, 0.12);
+  min-height: 18rem;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.cardTop {
+  padding: 1rem 1rem 0;
+}
+
+.cardBody {
+  display: grid;
+  align-content: end;
+  gap: 0.8rem;
+  padding: 1rem;
+}
+
+.cardBody h2 {
+  font-size: clamp(1.6rem, 2.4vw, 2.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+.cardBody strong {
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  font-weight: 400;
+  color: rgba(249, 247, 242, 0.86);
+  word-break: break-word;
+}
+
+.cardBody p {
+  max-width: 26rem;
+  color: rgba(249, 247, 242, 0.72);
+  line-height: 1.65;
+}
+
+@media (max-width: 1100px) {
+  .topRow {
+    grid-template-columns: 1fr;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 960px) {
+  .section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .card {
+    min-height: 14rem;
+  }
+}
